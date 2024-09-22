@@ -19,9 +19,9 @@ public static class BoardGameGeekScraper
         AnsiConsole.MarkupLine($"[bold]Scraped {boardGames.Count} board games![/]");
 
         AnsiConsole.MarkupLine("[bold]Exporting to JSON[/]");
-        await JsonExporter.Export($"{Directory}boardgames.json", boardGames);
+        await JsonExporter.Export($"{Directory}boardgames_{DateTime.Now:yyyyMMdd_HHmmss}.json", boardGames);
 
-        await CsvExporter.Export<BoardGame, BoardGameMap>($"{Directory}boardgames.csv", boardGames);
+        await CsvExporter.Export<BoardGame, BoardGameMap>($"{Directory}boardgames_{DateTime.Now:yyyyMMdd_HHmmss}.csv", boardGames);
     }
 
     private static CookieContainer GetCookieContainer()
