@@ -1,3 +1,16 @@
-﻿using Spectre.Console;
+﻿using Raspador.Console;
+using Raspador.Scrapers.Respo;
+using Spectre.Console;
 
-AnsiConsole.Write(new FigletText("Raspador").Centered().Color(Color.Red));
+var scraper = AnsiConsole.Prompt(new SelectionPrompt<string>().AddChoices(Scrapers.All));
+AnsiConsole.MarkupLine($"[bold]{scraper}[/]");
+switch (scraper)
+{
+    case Scrapers.Respo:
+    {
+        RespoScraper.DoIt();
+        break;
+    }
+    default:
+        throw new ArgumentOutOfRangeException($"Unknown scraper: {scraper}");
+}

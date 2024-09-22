@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspador.Common", "Raspador
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspador.Common.Tests", "Raspador.Common.Tests\Raspador.Common.Tests.csproj", "{FEEF8F5F-258C-4234-B842-F15E35320CC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspador.Scrapers.Respo", "Raspador.Scrapers.Respo\Raspador.Scrapers.Respo.csproj", "{1F59D1FF-3F41-4C87-A73B-ACF91D14E783}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{FEEF8F5F-258C-4234-B842-F15E35320CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEEF8F5F-258C-4234-B842-F15E35320CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEEF8F5F-258C-4234-B842-F15E35320CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F59D1FF-3F41-4C87-A73B-ACF91D14E783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F59D1FF-3F41-4C87-A73B-ACF91D14E783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F59D1FF-3F41-4C87-A73B-ACF91D14E783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F59D1FF-3F41-4C87-A73B-ACF91D14E783}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

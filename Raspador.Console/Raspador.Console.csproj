@@ -5,11 +5,10 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Raspador</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Raspador.Common\Raspador.Common.csproj" />
+      <ProjectReference Include="..\Raspador.Scrapers.Respo\Raspador.Scrapers.Respo.csproj" />
     </ItemGroup>
 
 </Project>
