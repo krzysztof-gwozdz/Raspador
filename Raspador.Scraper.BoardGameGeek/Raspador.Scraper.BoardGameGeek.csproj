@@ -1,15 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Raspador.Scraper.BoardGameGeek\Raspador.Scraper.BoardGameGeek.csproj" />
-      <ProjectReference Include="..\Raspador.Scrapers.Respo\Raspador.Scrapers.Respo.csproj" />
+      <ProjectReference Include="..\Raspador.Common\Raspador.Common.csproj" />
     </ItemGroup>
 
 </Project>
