@@ -5,8 +5,5 @@ namespace Raspador.Common.Tests;
 
 public sealed class DataCsvMap: ClassMap<Data>
 {
-    public DataCsvMap()
-    {
-        AutoMap(CultureInfo.InvariantCulture);
-    }
+    public DataCsvMap() => AutoMap(CultureInfo.InvariantCulture);
 }

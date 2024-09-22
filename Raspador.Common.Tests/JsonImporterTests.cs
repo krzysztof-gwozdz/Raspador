@@ -5,15 +5,15 @@ namespace Raspador.Common.Tests;
 public class JsonImporterTests
 {
     [Fact]
-    public void Import_ForValidPathAndData_ReturnsDeserializedData()
+    public async Task Import_ForValidPathAndData_ReturnsDeserializedData()
     {
         // arrange
         var path = Path.GetTempFileName();
         var data = new TestData();
-        File.WriteAllText(path, JsonSerializer.Serialize(data));
+        await File.WriteAllTextAsync(path, JsonSerializer.Serialize(data));
 
         // act
-        var result = JsonImporter.Import<Data>(path);
+        var result = await JsonImporter.Import<Data>(path);
 
         // assert
         result.Should().BeEquivalentTo(data);
@@ -29,7 +29,7 @@ public class JsonImporterTests
         var act = () => JsonImporter.Import<Data>(path);
 
         // assert
-        act.Should().Throw<JsonException>();
+        act.Should().ThrowAsync<JsonException>();
     }
 
     [Fact]
@@ -43,6 +43,6 @@ public class JsonImporterTests
         var act = () => JsonImporter.Import<Data>(path);
 
         // assert
-        act.Should().Throw<JsonException>();
+        act.Should().ThrowAsync<JsonException>();
     }
 }

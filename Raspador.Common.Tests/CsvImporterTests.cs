@@ -5,28 +5,28 @@ namespace Raspador.Common.Tests;
 public class CsvImporterTests
 {
     [Fact]
-    public void Import_ForValidPathAndData_ReturnsDeserializedData()
+    public async Task Import_ForValidPathAndData_ReturnsDeserializedData()
     {
         // arrange
         var path = Path.GetTempFileName();
         var data = new TestData();
-        File.WriteAllText(path, "Name,Age\nKris,30\nAna,18\n");
+        await File.WriteAllTextAsync(path, "Name,Age\nKris,30\nAna,18\n");
 
         // act
-        var result = CsvImporter.Import<Data, DataCsvMap>(path);
+        var result = await CsvImporter.Import<Data, DataCsvMap>(path);
 
         // assert
         result.Should().BeEquivalentTo(data);
     }
     
     [Fact]
-    public void Import_ForInvalidPath_ReturnsEmptyArray()
+    public async Task Import_ForInvalidPath_ReturnsEmptyArray()
     {
         // arrange
         var path = Path.GetTempFileName();
 
         // act
-        var result = CsvImporter.Import<Data, DataCsvMap>(path);
+        var result = await CsvImporter.Import<Data, DataCsvMap>(path);
 
         // assert
         result.Should().BeEmpty();
@@ -43,6 +43,6 @@ public class CsvImporterTests
         var act = () => CsvImporter.Import<Data, DataCsvMap>(path);
 
         // assert
-        act.Should().Throw<CsvHelperException>();
+        act.Should().ThrowAsync<CsvHelperException>();
     }
 }

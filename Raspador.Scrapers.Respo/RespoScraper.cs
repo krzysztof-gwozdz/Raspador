@@ -4,12 +4,12 @@ namespace Raspador.Scrapers.Respo;
 
 public static class RespoScraper
 {
-    public static void DoIt()
+    public static async Task DoIt()
     {   
         // var recipes = HtmlImporter.Import(@"C:\priv\respo");
         // CsvExporter.Export(@"C:\priv\respo.csv", recipes);
         // JsonExporter.Export(@"C:\priv\respo.json", recipes);
-        var recipes = JsonImporter.Import<Recipe>(@"C:\priv\respo.json");
+        var recipes = await JsonImporter.Import<Recipe>(@"C:\priv\respo.json");
 
         var allIngredients = recipes.SelectMany(recipe => recipe.Ingredients).OrderBy(ingredient => ingredient.Name).ToArray();
         var groupedIngredients = allIngredients.GroupBy(ingredient => ingredient.Name).Select(ingredients => new

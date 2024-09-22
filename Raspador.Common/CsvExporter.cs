@@ -6,11 +6,11 @@ namespace Raspador.Common;
 
 public static class CsvExporter
 {
-    public static void Export<TData, TDataMap>(string path, IEnumerable<TData> data) where TDataMap : ClassMap
+    public static async Task Export<TData, TDataMap>(string path, IEnumerable<TData> data) where TDataMap : ClassMap
     {
-        using var writer = new StreamWriter(path);
-        using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+        await using var writer = new StreamWriter(path);
+        await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
         csv.Context.RegisterClassMap<TDataMap>();
-        csv.WriteRecords(data);
+        await csv.WriteRecordsAsync(data);
     }
 }

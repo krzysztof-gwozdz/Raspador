@@ -8,7 +8,7 @@ switch (scraper)
 {
     case Scrapers.Respo:
     {
-        RespoScraper.DoIt();
+        await RespoScraper.DoIt();
         break;
     }
     default:
