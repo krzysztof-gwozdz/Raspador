@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspador.Console", "Raspador.Console\Raspador.Console.csproj", "{0C9B8781-9B5A-41B1-9AC4-960008250A5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspador.Common", "Raspador.Common\Raspador.Common.csproj", "{6BC1D872-0C89-445B-BC87-A72F97437E8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raspador.Common.Tests", "Raspador.Common.Tests\Raspador.Common.Tests.csproj", "{FEEF8F5F-258C-4234-B842-F15E35320CC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{0C9B8781-9B5A-41B1-9AC4-960008250A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C9B8781-9B5A-41B1-9AC4-960008250A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C9B8781-9B5A-41B1-9AC4-960008250A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BC1D872-0C89-445B-BC87-A72F97437E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC1D872-0C89-445B-BC87-A72F97437E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC1D872-0C89-445B-BC87-A72F97437E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC1D872-0C89-445B-BC87-A72F97437E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEEF8F5F-258C-4234-B842-F15E35320CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEEF8F5F-258C-4234-B842-F15E35320CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEEF8F5F-258C-4234-B842-F15E35320CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEEF8F5F-258C-4234-B842-F15E35320CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
