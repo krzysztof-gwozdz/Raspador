@@ -1,24 +1,26 @@
-﻿using HtmlAgilityPack;
+﻿using System.Text.RegularExpressions;
+using System.Xml.XPath;
+using HtmlAgilityPack;
 using Spectre.Console;
 
 namespace Raspador.Scraper.BoardGameGeek;
 
-public class BrowsePageScraper(string pagesDirectoryPath)
+public class BrowsePageScraper(ProgressTask task, string pagesDirectoryPath)
 {
     public async Task<List<BoardGame>> Scrap()
     {
         var pagesCount = Directory.GetFiles(pagesDirectoryPath).Length;
+        task.MaxValue = pagesCount;
         var boardGames = new List<BoardGame>();
         for (var i = 1; i <= pagesCount; i++)
         {
             var page = await GetPageAsync(i);
-            var rows = page.DocumentNode.SelectNodes("//tr[@id='row_']");
+            var rows = page.DocumentNode.SelectNodes("//tr")?.Where(x => x.Id.StartsWith("row_"));
             if (rows is null)
             {
                 AnsiConsole.MarkupLine("[red]No rows found[/]");
                 break;
             }
-
             foreach (var row in rows)
             {
                 var href = row.SelectSingleNode(".//a[@class='primary']")?.Attributes["href"]?.Value;
@@ -30,8 +32,7 @@ public class BrowsePageScraper(string pagesDirectoryPath)
                 var description = row.SelectSingleNode(".//p[@class='smallefont dull']")?.InnerText?.Trim() ?? string.Empty;
                 boardGames.Add(new BoardGame(int.Parse(id), rank, title, year, description, url));
             }
-
-            AnsiConsole.MarkupLine($"[green]Page {i} scraped[/]");
+            task.Increment(1);
         }
 
         return boardGames;
