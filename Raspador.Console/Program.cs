@@ -7,14 +7,14 @@ var scraper = AnsiConsole.Prompt(new SelectionPrompt<string>().AddChoices(Scrape
 AnsiConsole.MarkupLine($"[bold]{scraper}[/]");
 switch (scraper)
 {
-    case Scrapers.Respo:
-    {
-        await RespoScraper.DoIt();
-        break;
-    }
     case Scrapers.BoardGameGeek:
     {
         await BoardGameGeekScraper.DoIt();
+        break;
+    }
+    case Scrapers.Respo:
+    {
+        await RespoScraper.DoIt();
         break;
     }
     default:
