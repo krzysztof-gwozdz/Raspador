@@ -1,10 +1,11 @@
 ﻿using Raspador.Scrapers.Respo.Models;
+using Spectre.Console;
 
 namespace Raspador.Scrapers.Respo;
 
 public static class RespoScraper
 {
-    public static async Task DoIt()
+    public static async Task DoIt(ProgressContext progressContext)
     {   
         // var recipes = HtmlImporter.Import(@"C:\priv\respo");
         // CsvExporter.Export(@"C:\priv\respo.csv", recipes);

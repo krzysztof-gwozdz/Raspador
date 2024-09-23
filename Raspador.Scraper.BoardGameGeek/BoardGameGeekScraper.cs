@@ -7,34 +7,15 @@ public static class BoardGameGeekScraper
 {
     private const string Directory = @"C:\Users\KrzysztofGwozdz\Desktop";
 
-    public static async Task DoIt()
+    public static async Task DoIt(ProgressContext progressContext)
     {
-        try
-        {
-            await AnsiConsole.Progress()
-                .Columns(
-                    new TaskDescriptionColumn(),
-                    new ProgressBarColumn(),
-                    new PercentageColumn(),
-                    new RemainingTimeColumn(),
-                    new SpinnerColumn()
-                )
-                .StartAsync(async progressContext =>
-                {
-                    var downloadTask = progressContext.AddTask("[bold blue]Downloading pages[/]");
-                    var scrapTask = progressContext.AddTask("[bold red]Scraping pages[/]");
-                    var exportTask = progressContext.AddTask("[bold green]Exporting data[/]");
-                    
-                    await new BrowsePageDownloader(downloadTask, $@"{Directory}\pages\").Download();
-                    var boardGames = await new BrowsePageScraper(scrapTask, $@"{Directory}\pages\").Scrap();
-                    await Export(exportTask, boardGames);
-                });
-        }
-        catch (Exception e)
-        {
-            AnsiConsole.WriteException(e);
-            throw;
-        }
+        var downloadTask = progressContext.AddTask("[bold blue]Downloading pages[/]");
+        var scrapTask = progressContext.AddTask("[bold red]Scraping pages[/]");
+        var exportTask = progressContext.AddTask("[bold green]Exporting data[/]");
+
+        await new BrowsePageDownloader(downloadTask, $@"{Directory}\pages\").Download();
+        var boardGames = await new BrowsePageScraper(scrapTask, $@"{Directory}\pages\").Scrap();
+        await Export(exportTask, boardGames);
     }
 
     private static async Task Export(ProgressTask exportTask, List<BoardGame> boardGames)
